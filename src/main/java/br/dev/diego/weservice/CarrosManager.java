@@ -11,4 +11,12 @@ public class CarrosManager {
     public List<Carro> getCarros(){
         return carros;
     }
+
+    public Carro save(Carro newCarro) {
+
+        carros.add(newCarro);
+
+        return newCarro;
+
+    }
 }

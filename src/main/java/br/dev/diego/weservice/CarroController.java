@@ -6,19 +6,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.util.*;
 
 @RestController
-@RequestMapping("/api/carros")
+@RequestMapping("/api")
 public class CarroController {
 
     private final CarrosManager carrosManager = new CarrosManager();
 
-    @GetMapping
+    @GetMapping("/carros")
     public List<Carro> all() {
         return carrosManager.getCarros();
     }
 
-    /*@PostMapping
-    public Carro addCarro(@RequestBody Carro carro) {
-        carros.add(carro);
-        return carro;
-    }*/
+    @PostMapping
+    Carro newCarro(@RequestBody Carro newCarro) {
+        return carrosManager.save(newCarro);
+    }
 }
